@@ -34,7 +34,7 @@ export default function RootLayout({
       }
     }}>
     <html lang="en">
-      <body className={`${inter.className}`}>
+      <body className={`${inter.className} dotted-background`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -45,7 +45,7 @@ export default function RootLayout({
           <main className="min-h-screen">{children}</main>
           <footer className="bg-gray-900 py-12">
             <div className="container mx-auto text-center text-grey-200 px-4">
-              Made By Siddhesh
+              Made with ❤ By Siddhesh
             </div>
             </footer>
         </ThemeProvider>
