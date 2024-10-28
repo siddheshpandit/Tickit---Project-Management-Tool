@@ -5,11 +5,9 @@ import { Inter } from "next/font/google";
 import Header from "@/components/header";
 import {
   ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
 } from '@clerk/nextjs'
+import {shadesOfPurple} from '@clerk/themes';
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -23,7 +21,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider appearance={{baseTheme:shadesOfPurple,
+      variables: {
+        colorPrimary: '#3b82fc',
+        colorBackground:'#1a202c',
+        colorInputBackground:'#2d3748',
+        colorInputText: '#F3F4F6',
+      },
+      elements:{
+        formButtonPrimary:'text-white',
+        card:'bg-gray-800'
+      }
+    }}>
     <html lang="en">
       <body className={`${inter.className}`}>
         <ThemeProvider
@@ -32,12 +41,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
           <Header/>
           <main className="min-h-screen">{children}</main>
           <footer className="bg-gray-900 py-12">
