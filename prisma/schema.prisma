@@ -71,7 +71,7 @@ model Issues {
   reporterId  String
   project     Project       @relation(fields: [projectId], references: [id], onDelete: Cascade)
   projectId   String
-  sprint      Sprint?        @relation(fields: [sprintId], references: [id])
+  sprint      Sprint?       @relation(fields: [sprintId], references: [id], onDelete: SetNull)
   sprintId    String?
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
@@ -87,6 +87,8 @@ enum IssuePriority {
 }
 
 enum IssueStatus {
-  PENDING
-  COMPLETED
+  TODO
+  IN_PROGRESS
+  IN_REVIEW
+  DONE
 }
