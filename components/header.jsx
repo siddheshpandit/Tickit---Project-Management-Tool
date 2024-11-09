@@ -5,8 +5,10 @@ import React from "react";
 import { Button } from "./ui/button";
 import { PenBox } from "lucide-react";
 import UserMenu from "./user-menu";
+import UserLoading from "./user-loading";
 import {checkUser} from "../lib/clerkUser"
 const Header = async() => {
+
   await checkUser();
   return (
     <header>
@@ -21,7 +23,7 @@ const Header = async() => {
           />
         </Link>
         <div className="flex items-center gap-8">
-          <Link href={"/project/create"}>
+          <Link href={"/project/create-project"}>
             <Button variant={"outline"}>
               <PenBox size={18}/>
               <span>Create Project</span>
@@ -37,6 +39,7 @@ const Header = async() => {
           </SignedIn>
         </div>
       </nav>
+      <UserLoading/>
     </header>
   );
 };
