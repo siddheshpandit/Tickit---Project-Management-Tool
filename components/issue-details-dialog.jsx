@@ -11,10 +11,8 @@ import { SelectValue } from "@radix-ui/react-select";
 import statuses from "../data/status.json";
 import useFetch from "@/hooks/useFetch";
 import MDEditor from "@uiw/react-md-editor";
-import { Avatar } from "./ui/avatar";
 import UserAvatar from "./user-avatar";
-import { AlertDialog } from "./ui/alert-dialog";
-import { AlertDialogContent } from "@radix-ui/react-alert-dialog";
+
 const PRIORITY_OPTIONS = ["LOW", "MEDIUM", "HIGH", "URGENT"];
 
 const IssueDialogDetails = ({

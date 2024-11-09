@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import useFetch from "@/hooks/useFetch";
-import { updateSprint, updateSprintStatus } from "@/actions/sprint";
+import { updateSprintStatus } from "@/actions/sprint";
 import { BarLoader } from "react-spinners";
 import { useSearchParams } from "next/navigation";
 
