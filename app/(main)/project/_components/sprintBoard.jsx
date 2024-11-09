@@ -20,7 +20,7 @@ function reorder(list, startIndex, endIndex) {
   result.splice(endIndex, 0, removed);
   return result;
 }
-const sprintBoard = ({ sprints, projectId, orgId }) => {
+const SprintBoard = ({ sprints, projectId, orgId }) => {
   const [currentSprint, setCurrentSprint] = useState(
     sprints.find((spr) => spr.status === "ACTIVE") || sprints[0]
   );
@@ -228,4 +228,4 @@ const sprintBoard = ({ sprints, projectId, orgId }) => {
   );
 };
 
-export default sprintBoard;
+export default SprintBoard;
