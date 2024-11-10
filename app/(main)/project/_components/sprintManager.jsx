@@ -14,7 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import useFetch from "@/hooks/useFetch";
 import { updateSprintStatus } from "@/actions/sprint";
 import { BarLoader } from "react-spinners";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const SprintManager = ({ sprint, setSprint, sprints, projectId }) => {
   const [status, setStatus] = useState(sprint.status);
