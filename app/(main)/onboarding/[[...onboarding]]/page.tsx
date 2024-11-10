@@ -3,7 +3,7 @@ import { OrganizationList, useOrganization } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
-const Onboading = () => {
+const Onboarding = () => {
   const { organization } = useOrganization();
   const router = useRouter();
 
@@ -24,4 +24,4 @@ const Onboading = () => {
   );
 };
 
-export default Onboading;
+export default Onboarding;
