@@ -1,3 +1,4 @@
+"use client"
 import { getOrganizationUsers } from "@/actions/organization";
 import { createIssue } from "@/actions/issues";
 import { issueSchema } from "@/app/lib/validators";
