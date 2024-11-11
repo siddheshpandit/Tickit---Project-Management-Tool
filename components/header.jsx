@@ -1,37 +1,40 @@
-import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
-import Image from "next/image";
-import Link from "next/link";
+
 import React from "react";
 import { Button } from "./ui/button";
-import { PenBox } from "lucide-react";
+import Link from "next/link";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import UserMenu from "./user-menu";
+import { PenBox } from "lucide-react";
+import Image from "next/image";
+import { checkUser } from "@/lib/clerkUser";
 import UserLoading from "./user-loading";
-import {checkUser} from "../lib/clerkUser"
-const Header = async() => {
 
+async function Header() {
   await checkUser();
   return (
-    <header>
+    <header className="container mx-auto">
       <nav className="py-6 px-4 flex justify-between items-center">
         <Link href="/">
-          <Image
-            src="/logo.png"
-            alt="Tickit Logo"
-            width={200}
-            className="h-10 w-auto object-contain"
-            height={300}
-          />
+          <h1 className="text-2xl font-bold">
+            <Image
+              src={"/logo.png"}
+              alt="Tickit Logo"
+              width={200}
+              height={56}
+              className="h-10 w-auto object-contain"
+            />
+          </h1>
         </Link>
-        <div className="flex items-center gap-8">
-          <Link href={"/project/create-project"}>
-            <Button variant={"outline"}>
-              <PenBox size={18}/>
-              <span>Create Project</span>
+        <div className="flex items-center gap-4">
+          <Link href="/project/create">
+            <Button variant="destructive" className="flex items-center gap-2">
+              <PenBox size={18} />
+              <span className="hidden md:inline">Create Project</span>
             </Button>
           </Link>
           <SignedOut>
             <SignInButton forceRedirectUrl="/onboarding">
-            <Button variant={"outline"}>Login</Button>
+              <Button variant="outline">Login</Button>
             </SignInButton>
           </SignedOut>
           <SignedIn>
@@ -39,9 +42,10 @@ const Header = async() => {
           </SignedIn>
         </div>
       </nav>
-      <UserLoading/>
+
+      <UserLoading />
     </header>
   );
-};
+}
 
 export default Header;
