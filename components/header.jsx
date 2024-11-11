@@ -26,7 +26,7 @@ async function Header() {
           </h1>
         </Link>
         <div className="flex items-center gap-4">
-          <Link href="/project/create">
+          <Link href="/project/create-project">
             <Button variant="destructive" className="flex items-center gap-2">
               <PenBox size={18} />
               <span className="hidden md:inline">Create Project</span>
